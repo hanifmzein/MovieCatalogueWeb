@@ -12,7 +12,12 @@ class MovieItem extends HTMLElement {
   
     render() {
 
-        
+        let url;
+        if (this._movie.poster_path) {
+            url = `https://image.tmdb.org/t/p/w500${this._movie.poster_path}`;
+        } else {
+            url = 'https://via.placeholder.com/500x300?text=Poster+Not+Available';
+        }
 
         this.shadowDOM.innerHTML = `
         <style>
@@ -22,7 +27,7 @@ class MovieItem extends HTMLElement {
             
             .fan-art-movie {
                 width: 100%;
-                height: 200px;
+                height: 400px;
                 object-fit: cover;
                 object-position: center;
                 display: block;
@@ -42,7 +47,7 @@ class MovieItem extends HTMLElement {
             }
             
         </style>
-        <img class="fan-art-movie" src="https://image.tmdb.org/t/p/w500${this._movie.poster_path}" alt="Fan Art">
+        <img class="fan-art-movie" src="${url}" alt="Fan Art">
         <div class="movie-info">
             <h2>${this._movie.title}</h2>
             <p>${this._movie.overview.substring(1,100)}</p>
