@@ -20,7 +20,7 @@ class AppBar extends HTMLElement {
             :host {
                 display: block;
                 width: 100%;
-                background-color: cornflowerblue;
+                background-color: green;
                 color: white;
                 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
             }
@@ -28,7 +28,7 @@ class AppBar extends HTMLElement {
                 padding: 16px;
             }
         </style>
-        <h2>Club Finder</h2>`;
+        <h2>Movie Catalogue Web</h2>`;
     }
  }
   

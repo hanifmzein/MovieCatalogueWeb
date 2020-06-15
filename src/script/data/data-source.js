@@ -1,10 +1,10 @@
 
-// import clubs from './clubs.js';
+// import movies from './movies.js';
 
 
 class DataSource {
  
-    static searchClub(keyword) {
+    static searchMovie(keyword) {
         return fetch(`https://api.themoviedb.org/3/search/movie?api_key=cecb2163f48864d224cc35f55f0e30fd&language=en-US&query=${keyword}&page=1&include_adult=false`)
         .then(response => {
             // console.log(response);
