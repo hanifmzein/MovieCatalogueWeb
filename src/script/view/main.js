@@ -1,10 +1,20 @@
 import '../component/search-bar.js';
-import '../component/movie-list.js'
+import '../component/movie-item';
+import '../component/movie-list.js';
 import DataSource from '../data/data-source.js';
 
 const main = () => {
     const searchElement = document.querySelector("search-bar");
     const movieListElement = document.querySelector("movie-list");
+    
+    const showPopularMovie = async () => {
+        try {
+            const result = await DataSource.getPopular();
+            renderResult(result);
+        } catch (message) {
+            fallbackResult(message);
+        }
+    }
 
     const onButtonSearchClicked = async () => {
         try {
@@ -24,6 +34,7 @@ const main = () => {
         movieListElement.innerHTML += '<h2 class="placeholder">' + message + '</h2>'
     };
 
+    showPopularMovie();
     searchElement.clickEvent = onButtonSearchClicked;
 };
 
